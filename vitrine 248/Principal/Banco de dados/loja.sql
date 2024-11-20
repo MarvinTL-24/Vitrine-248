@@ -32,7 +32,6 @@ CREATE TABLE `produtos` (
   `nome` varchar(150) NOT NULL,
   `preço` decimal(10,2) NOT NULL,
   `tamanho` varchar(50) NOT NULL,
-  `cor` varchar(50) NOT NULL,
   `descrição` text NOT NULL,
   `imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

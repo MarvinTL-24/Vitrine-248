@@ -56,23 +56,14 @@
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Suporte e ajuda
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Minha Conta
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							PT
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
+							Endereço: 1150 Av. Cel. José Euclides Ferreira Gomes
 						</a>
 					</div>
 				</div>
 			</div>
+
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
 
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
@@ -207,92 +198,6 @@
 		</div>
 	</header>
 
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Carrinho
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="#" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								
-							</a>
-
-							<span class="header-cart-item-info">
-								
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								
-							</a>
-
-							<span class="header-cart-item-info">
-								
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								
-							</a>
-
-							<span class="header-cart-item-info">
-								
-							</span>
-						</div>
-					</li>
-				</ul>
-				
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="carrinho.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							Seu carrinho
-						</a>
-
-						<a href="carrinho.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Confirmar
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
@@ -300,103 +205,32 @@
 		</h2>
 	</section>
 
-	<!--Carrinho em processo-->
-	<div class="container mt-5">
-		<h1>Carrinho de Compras</h1>
-		<div id="cart"></div>
-		<h2>Favoritos</h2>
-		<div id="wishlist" class="mt-4">
-			<!-- Produtos favoritados serão listados aqui dinamicamente -->
-		</div>
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-				const wishlistContainer = document.getElementById("wishlist");
-				
-				if (wishlist.length === 0) {
-					wishlistContainer.innerHTML = "<p>Você ainda não tem favoritos.</p>";
-				} else {
-					wishlist.forEach(item => {
-						const itemDiv = document.createElement("div");
-						itemDiv.className = "wishlist-item";
-						itemDiv.innerHTML = `
-							<p>${item.name}</p>
-							<button onclick="addToCartFromWishlist('${item.name}', ${item.price})">Adicionar ao Carrinho</button>
-						`;
-						wishlistContainer.appendChild(itemDiv);
-					});
-				}
-			});
-
-    function addToCartFromWishlist(name, price) {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.push({ name, price });
-        localStorage.setItem("cart", JSON.stringify(cart));
-        alert(`${name} foi adicionado ao carrinho!`);
-    }
-</script>
-
-
-		<div class="cart-summary">
-			<h3>Total: <span id="total-price">R$ 0,00</span></h3>
-		</div>
-
-		<h3>Meios de Pagamento</h3>
-		<select id="payment-method" class="form-control">
-			<option value="dinheiro">Dinheiro</option>
-			<option value="cartao">Cartão</option>
-			<option value="boleto">Boleto</option>
-		</select>
-
-
-		<script>
-			// Produtos disponíveis (para simulação)
-			const products = [];
-
-			// Carrinho de Compras
-			const cart = [];
-
-			// Função para adicionar produtos ao carrinho
-			function addToCart(productId, quantity) {
-				const product = products.find(p => p.id === productId);
-				if (product && quantity <= product.quantityAvailable) {
-					const cartItem = cart.find(item => item.product.id === productId);
-					if (cartItem) {
-						cartItem.quantity += quantity;
-					} else {
-						cart.push({ product, quantity });
-					}
-					updateCart();
-				} else {
-					alert("Quantidade indisponível!");
-				}
-			}
-
-			// Função para atualizar o carrinho
-			function updateCart() {
-				const cartContainer = document.getElementById('cart');
-				cartContainer.innerHTML = "";
-				let total = 0;
-
-				cart.forEach(item => {
-					const { product, size, quantity } = item;
-					total += product.price * quantity;
-
-					const cartItemDiv = document.createElement('div');
-					cartItemDiv.className = 'cart-item';
-					cartItemDiv.innerHTML = `
-						<img src="${product.image}" alt="${product.name}" />
-						<div>${product.name} (Tamanho: ${size}, x${quantity})</div>
-						<div>R$ ${(product.price * quantity).toFixed(2)}</div>
-					`;
-					cartContainer.appendChild(cartItemDiv);
-				});
-
-				document.getElementById('total-price').innerText = `R$ ${total.toFixed(2)}`;
-			}
-
-		</script>
-	</div>
+	<!-- Seção Carrinho em Processo -->
+    <div class="container mt-5">
+        <h1>Carrinho de Compras</h1>
+        <div id="cart">
+            <?php
+                include 'carrinho.php'; // Inclui lógica PHP para carregar itens do carrinho
+                $itens = obterItensCarrinho(); // Supondo que 'obterItensCarrinho()' seja definido em 'carrinho.php'
+                if (empty($itens)) {
+                    echo "<p>Seu carrinho está vazio.</p>";
+                } else {
+                    foreach ($itens as $item) {
+                        echo "<div class='cart-item'>
+                                <img src='{$item['imagem']}' alt='{$item['nome']}' style='width: 100px;' />
+                                <div>{$item['nome']} (x{$item['quantidade']})</div>
+                                <div>R$ " . number_format($item['preco'], 2, ',', '.') . "</div>
+                              </div>";
+                    }
+                }
+            ?>
+        </div>
+        <div class="cart-summary">
+            <h3>Total: R$ 
+                <?php echo number_format(calcularTotal($itens), 2, ',', '.'); ?>
+            </h3>
+        </div>
+    </div>
 
 
 	
@@ -720,7 +554,65 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         document.addEventListener('DOMContentLoaded', loadCart);
     </script>
-    </body>
+    
+<div class="container mt-5">
+    <h1>Carrinho de Compras</h1>
+    <div id="cart"></div>
+    <div class="cart-summary">
+        <h3>Total: <span id="total-price">R$ 0,00</span></h3>
+    </div>
+    <button id="enviarWhatsApp" class="btn btn-primary">Finalizar pelo WhatsApp</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('obter_carrinho.php')
+            .then(response => response.json())
+            .then(data => {
+                const cartContainer = document.getElementById('cart');
+                cartContainer.innerHTML = "";
+                let total = 0;
+
+                data.forEach(item => {
+                    const cartItemDiv = document.createElement('div');
+                    cartItemDiv.className = 'cart-item';
+                    total += item.preco * item.quantidade;
+
+                    cartItemDiv.innerHTML = `
+                        <div>
+                            <img src="${item.imagem}" alt="${item.nome}" style="width: 100px; height: auto;" />
+                        </div>
+                        <div>${item.nome} (Tamanho: ${item.tamanho}, x${item.quantidade})</div>
+                        <div>R$ ${(item.preco * item.quantidade).toFixed(2)}</div>
+                    `;
+                    cartContainer.appendChild(cartItemDiv);
+                });
+
+                document.getElementById('total-price').innerText = `R$ ${total.toFixed(2)}`;
+            });
+    });
+
+    document.getElementById('enviarWhatsApp').addEventListener('click', () => {
+        fetch('obter_carrinho.php')
+            .then(response => response.json())
+            .then(data => {
+                const itens = data.map(item => 
+                    `${item.nome} (${item.tamanho}, x${item.quantidade}) - R$ ${item.preco} 
+Imagem: ${item.imagem}`
+                ).join('%0A');
+
+                const total = data.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+
+                const mensagem = `Olá, segue o resumo da minha compra:%0A${itens}%0ATotal: R$ ${total.toFixed(2)}`;
+                const telefoneVendedora = "551234567890"; // Substitua pelo número real
+                const link = `https://wa.me/${telefoneVendedora}?text=${mensagem}`;
+
+                window.open(link, '_blank');
+            });
+    });
+</script>
+</body>
+
     
     
 </html>
