@@ -43,7 +43,7 @@ echo "
                         <label for='imagem' class='form-label'>Escolha uma imagem:</label>
                         <input type='file' name='imagem' id='imagem' class='form-control' accept='image/*' required>
                     </div>
-                    <input type='hidden' name='agir'
+                    <input type='hidden' name='agir' value='excluir'>
                     <button type='submit' class='btn btn-primary'>Cadastrar</button>
                 </div>
             </div>
