@@ -5,7 +5,7 @@ $password = ""; // senha do banco de dados
 $dbname = "loja"; // nome do banco de dados
 
 // Criar conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $db_loja);
 
 // Verificar conexão
 if ($conn->connect_error) {
